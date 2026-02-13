@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Valentine Envelope</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI", Arial, sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#b983ff,#ffffff,#ffb3d9);
+}
+
+/* Envelope container */
+.envelope{
+    position:relative;
+    width:380px;
+    height:260px;
+    border-radius:14px;
+    background:#e9c8ff;
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
+    cursor:pointer;
+    perspective:1000px;
+}
+
+/* Top flap */
+.flap{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:#c084fc;
+    clip-path:polygon(0 0,100% 0,50% 60%);
+    transform-origin:top;
+    transition:.6s ease;
+    pointer-events:none; /* ⭐ FIX: allows tapping */
+}
+
+/* Card */
+.card{
+    position:absolute;
+    width:94%;
+    height:94%;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%) translateY(35px);
+    background:#ffffff;
+    border-radius:14px;
+    padding:26px;
+    overflow-y:auto;
+    opacity:0;
+    transition:.6s ease;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+/* Text */
+.message{
+    color:#3b0764;
+    font-size:17px;
+    line-height:1.9;
+    letter-spacing:.3px;
+    white-space:pre-line;
+}
+
+/* Open state */
+.envelope.open .flap{
+    transform:rotateX(180deg);
+}
+
+.envelope.open .card{
+    transform:translate(-50%,-145%);
+    opacity:1;
+}
+
+/* Tap text */
+.tap{
+    position:absolute;
+    bottom:-34px;
+    width:100%;
+    text-align:center;
+    color:white;
+    font-size:14px;
+}
+
+/* 📱 Responsive */
+@media (max-width:500px){
+    .envelope{
+        width:92%;
+        height:220px;
+    }
+
+    .message{
+        font-size:16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="envelope" id="env">
+    <div class="flap"></div>
+
+    <div class="card">
+        <div class="message">
+hewo loviee 😊
+
+happy valentines da most precious girl in my lifeeee☺️
+jus wanna say pho ty so much for stayin wit me n lovin me even when im not perfect🥹
+
+u mean so much to me pho
+like every day wit u iz already a gift alrdy
+i dont even need fancy stuff or big dates
+as long as im wit u im happy nah 😙
+
+lovie u make my world softer
+u make my problems lighter
+u make my heart calmer
+parang when im wit u everything feels safe n quiet n right 🥰
+
+i swear im so lucky its u
+out of all da people in da world
+ikaw pa talaga
+my person
+my home
+my pahinga
+
+ty pho for da patience
+for da understanding
+for da lambing
+for da kisses
+for da hugs
+for stayin even on my bad days
+u love me in ways i didnt even know i needed 🥺
+
+i promise ill alwyz choose u
+alwyz protect u
+alwyz reassure u
+alwyz stay loyal n true
+no matter what happens
+itz still u
+only u
+evryday
+beyond infinity 😚
+
+i love u so so so much lovieee
+more than words
+more than distance
+more than time itself
+
+happy valentines lovie ko
+loveu so much mwamwa mwamwa 😚😚
+        </div>
+    </div>
+
+    <div class="tap">tap to open 💌</div>
+</div>
+
+<script>
+const env = document.getElementById("env");
+env.addEventListener("click", () => {
+    env.classList.toggle("open");
+});
+</script>
+
+</body>
+</html>
